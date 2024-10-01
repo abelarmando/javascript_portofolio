@@ -1,0 +1,35 @@
+<%- include('partials/header.ejs') %>
+<header>
+    <a class="logo"> Hello <%= name %> </a>
+    <nav>
+        <ul class="nav-link">
+            <li><a href="/">Login</a></li>
+            <li><a href="/submit">Home</a></li>
+        </ul>
+    </nav>
+</header>
+<% if (locals.caption) { %>
+    <div class="postcaption">
+        <div class="text">
+        <p><%= caption %></p>
+        </div>
+    </div>
+<% } else { %>
+
+<div class="post">
+    <button>New Post</button>
+</div>
+<% } %>
+<div class="uploud hidden">
+    <button class="close-modal">&times;</button>
+    
+    <form action="/submit" method="post" class="captiontext">
+    <input type="text" name="captiontext" class="caption">
+    <input type="submit" value="post" id="sendtext">
+    </form>
+    
+</div>
+<div class="overlay hidden"></div>
+
+
+<%- include('partials/footer.ejs') %>
